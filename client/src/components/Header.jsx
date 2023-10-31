@@ -7,9 +7,7 @@ import { useNavigate } from "react-router-dom";
 export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
   const [searchTerm, setsearchTerm] = useState("");
-
   const navigate = useNavigate();
-
   useEffect(() => {
     const urlparams = new URLSearchParams(window.location.search);
     const searchTermFromUrl = urlparams.get("searchTerm");
@@ -17,7 +15,6 @@ export default function Header() {
       setsearchTerm(searchTermFromUrl);
     }
   }, [window.location.search]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const urlParams = new URLSearchParams(window.location.search);
@@ -32,7 +29,7 @@ export default function Header() {
         <Link to={"/"}>
           <h1 className="fond-bold text-sm sm:text-xl flex flex-wrap">
             <span className="text-slate-500">True</span>
-            <span className="text-slate-700">Estate</span>
+            <span className="text-slate-700">Properties</span>
           </h1>
         </Link>
         <form
